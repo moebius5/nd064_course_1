@@ -8,7 +8,7 @@ service:
   type: ClusterIP
 
 image:
-  repository: techtrends 
+  repository: moebius5/techtrends 
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -24,7 +24,7 @@ resources:
 
 containerPort: 3111
 
-livevessProbe:
+livenessProbe:
   path: /healthz
   port: containerPort
 
