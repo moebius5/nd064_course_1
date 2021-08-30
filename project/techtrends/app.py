@@ -78,13 +78,26 @@ def create():
 
 # Healthcheck endpoint
 # Should return status code 200 and the response: "result: OK - healthy"
+# Added: Standout Sugestion 1: Dynamic Healthcheck endpoint, will check if the table 'posts' exists in DB
 @app.route('/healthz')
 def healthz():
-    response = app.response_class(
-        response=json.dumps({"result": "OK - healthy"}),
-        status = 200,
-        mimetype='application/json'
-    )
+    try:
+        connection = get_db_connection()
+        connection.execute('SELECT * FROM posts').fetchone()
+        response = app.response_class(
+            response=json.dumps({"result": "OK - healthy"}),
+            status=200,
+            mimetype='application/json'
+        )
+    except:
+        response = app.response_class(
+            response=json.dumps({"result": "ERROR - unhealthy"}),
+            status=500,
+            mimetype='application/json'
+        )
+    finally:
+        connection.close()
+
     return response
 
 # Metrics endpoint
