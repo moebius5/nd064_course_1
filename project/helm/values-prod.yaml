@@ -6,8 +6,9 @@ service:
 
 image:
   pullPolicy: Always
-  # Standout Suggestion 2: Push Docker images with custom tags:
-  tag: v1.3
+  # Standout Suggestion 2: Push Docker images with custom tags (uncomment the following 'v1.3', comment the 'latest')
+  #tag: v1.3
+  tag: latest
 
 replicaCount: 5
 
