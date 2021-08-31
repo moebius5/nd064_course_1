@@ -9,7 +9,14 @@ spec:
   ports:
   - port: {{ .Values.service.port }}
     protocol: {{ .Values.service.protocol }}
-    targetPort: {{ .Values.service.targetPort | default .Values.service.port }}
+    # Standout Suggestion 3: Helm chart conditionals. Case #1. Using if/else statement as noted in instructions:
+    {{- if .Values.service.targetPort }}
+    targetPort: .Values.service.targetPort
+    {{- else }}
+    targetPort: .Values.service.port
+    {{- end }}
+    # Standout Suggestion 3: Helm chart conditionals. Case #2. Using more optimal 'default' statement:
+    #targetPort: {{ .Values.service.targetPort | default .Values.service.port }}
   selector:
     app: techtrends
   type: {{ .Values.service.type }}

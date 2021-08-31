@@ -6,6 +6,7 @@ service:
 
 image:
   pullPolicy: Always
+  # Standout Suggestion 2: Push Docker images with custom tags:
   tag: v1.3
 
 replicaCount: 5
