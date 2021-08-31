@@ -3,13 +3,13 @@ namespace:
  
 service:
   port: 4111
-  targetPort: 3111
+  #targetPort: 3111
   protocol: TCP
   type: ClusterIP
 
 image:
   repository: moebius5/techtrends 
-  tag: latest
+  tag:  latest
   pullPolicy: IfNotPresent
 
 replicaCount: 1
