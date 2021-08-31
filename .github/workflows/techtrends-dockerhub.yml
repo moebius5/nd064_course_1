@@ -15,6 +15,7 @@ jobs:
         name: Checkout
         uses: actions/checkout@v2
       -
+        # Standout Suggestion 2: Push Docker images with custom tags. Turning on the metadata action
         name: Docker meta
         id: meta
         uses: docker/metadata-action@v3
@@ -42,6 +43,7 @@ jobs:
           push: true
           tags: moebius5/techtrends:latest
       -
+        # Standout Suggestion 2: Push Docker images with custom tags. Alongside building the 'latest' image, also build the tagged one:
         name: Build and push tagged
         uses: docker/build-push-action@v2
         with:
