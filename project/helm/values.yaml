@@ -5,7 +5,7 @@ service:
   port: 4111
   # Standout Suggestion 3: Helm chart conditionals. If I comment out the following 'targetPort' key
   # the conditional expression in service.yaml will put in the value from 'port' key
-  #targetPort: 3111
+  targetPort: 3111
   protocol: TCP
   type: ClusterIP
 
