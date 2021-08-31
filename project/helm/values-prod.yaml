@@ -6,6 +6,7 @@ service:
 
 image:
   pullPolicy: Always
+  tag: v1.3
 
 replicaCount: 5
 
